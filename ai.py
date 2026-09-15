@@ -9,10 +9,6 @@ def generate_ai_check_message(message):
     if not message:
         return "No message provided."
 
-    # text = "\n".join(
-    #     f"- {a['title']} | {a['subject']} | due {a['due_date']} | status: {a['status']} | {a['days_left']} days left"
-    #     for a in assignments
-    # )
     text =message
 
 
@@ -37,13 +33,7 @@ message:
 
 OUTPUT FORMAT:
 
-The message contains:
-[curse_words,...]
-message meaning:
-joke/attack/curse/heavy_joke
-
-End with:
-- short tip for what to do,to block user or to warn
+offensive/not_offensive
 """
 
     try:
