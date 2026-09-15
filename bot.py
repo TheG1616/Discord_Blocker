@@ -6,6 +6,7 @@ import ai
 from nextcord.ext import commands, tasks
 from constants import TOKEN, PREFIX
 from text_moudle import remove_punct, text_analyzer, if_severe_sentence
+from image import check_image
 
 # intents
 intents = nextcord.Intents.default()
@@ -33,8 +34,24 @@ async def on_message(message):
     # bot won't reply himself in a endless loop.
     if message.author.bot:
         return
+
     content = remove_punct(message.content)
     percent = text_analyzer(content)
+
+    if message.attachments:
+        if not check_image(message.attachments[0].url):
+            return
+
+        else:
+            try:
+                duration = nextcord.utils.utcnow() + timedelta(minutes=1)
+                await message.author.edit(timeout=duration, reason="offensive image")
+                await message.channel.send(f"**{message.author.mention} has been timed out for offensive image.**")
+                await message.delete()
+
+            except:
+                print("I don't have permissions to time out the user.")
+
 
     # considered offensive
     if if_severe_sentence(percent):
