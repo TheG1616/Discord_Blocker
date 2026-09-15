@@ -26,11 +26,10 @@ def text_analyzer(string):
     for word in list_sentence:
         if word in list_of_bad_words:
             count_bad_words+=1
-    print(list_sentence)
     return count_bad_words / len(list_sentence)
 
 def if_severe_sentence(float_num):
     return float_num > 0.2
 
 
-print(make_list_of_bad_words(read_file("bad_words")))
+
