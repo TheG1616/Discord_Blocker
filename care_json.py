@@ -67,6 +67,8 @@ def default_setting():
 
 
 def save_timeout_duration(timeout_duration):
+    if not timeout_duration:
+        return
     timeout_duration = int(timeout_duration)
     data = default_setting()
     data["settings"]["timeout_duration"] = timeout_duration
@@ -76,6 +78,8 @@ def save_timeout_duration(timeout_duration):
 
 
 def save_kick_amount(kick_amount):
+    if not kick_amount:
+        return
     kick_amount = int(kick_amount)
     data = default_setting()
     data["settings"]["kick_amount"] = kick_amount
@@ -85,6 +89,8 @@ def save_kick_amount(kick_amount):
 
 
 def save_ban_amount(ban_amount):
+    if not ban_amount:
+        return
     ban_amount = int(ban_amount)
     data = default_setting()
     data["settings"]["ban_amount"] = ban_amount
