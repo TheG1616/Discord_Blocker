@@ -29,7 +29,7 @@ def text_analyzer(string):
     return count_bad_words / len(list_sentence)
 
 def if_severe_sentence(float_num):
-    return float_num > 0.2
+    return float_num > 0.1
 
 
 
