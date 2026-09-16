@@ -63,6 +63,9 @@ def default_setting():
         data["settings"]["kick_amount"] = 5
         data["settings"]["ban_amount"] = 10
 
+    with open("data.json", "w") as file:
+        json.dump(data, file, indent=4)
+
     return data
 
 
@@ -97,3 +100,8 @@ def save_ban_amount(ban_amount):
 
     with open("data.json", "w") as file:
         json.dump(data, file, indent=4)
+
+
+def get_settings():
+    data = default_setting()
+    return data["settings"]
