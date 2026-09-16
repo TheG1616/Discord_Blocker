@@ -24,7 +24,7 @@ def hist_page():
             'bg-red-300': 'x=="ban"',
             'bg-green-300': 'x==="timeout"',
         }},
-            {'headerName': 'Pfp', 'field': 'avatar_url','filter': 'agTextColumnFilter', 'floatingFilter': False},
+            # {'headerName': 'Pfp', 'field': 'avatar_url','filter': 'agTextColumnFilter', 'floatingFilter': False},
             {'headerName': 'Username', 'field': 'username', 'filter': 'agTextColumnFilter', 'floatingFilter': True}
         ],
         'rowData': care_json.get_history(),
