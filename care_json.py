@@ -11,7 +11,7 @@ def ret_json():
 def add_new_event(user_id, time, event_type, opreation):
     data = ret_json()
     if str(user_id) not in data:
-        data[user_id] = []
+        data[str(user_id)] = []
     data[str(user_id)].append({"time": time, "event_type": event_type, "opreation": opreation})
     with open("data.json", "w") as file:
         json.dump(data, file, indent=4)
